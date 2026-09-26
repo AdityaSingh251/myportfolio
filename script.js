@@ -381,3 +381,204 @@ document.addEventListener(
 
     }
 );
+/* =====================================
+   SKILL BAR ANIMATION
+===================================== */
+
+const skillProgress =
+    document.querySelectorAll(".skill-progress");
+
+
+const skillObserver =
+    new IntersectionObserver(
+
+        function(entries, observer) {
+
+            entries.forEach(function(entry) {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+
+                const progress =
+                    entry.target;
+
+
+                const width =
+                    progress.dataset.width;
+
+
+                progress.style.width =
+                    width + "%";
+
+
+                observer.unobserve(progress);
+
+            });
+
+        },
+
+        {
+            threshold: 0.4
+        }
+
+    );
+
+
+skillProgress.forEach(function(progress) {
+
+    skillObserver.observe(progress);
+
+});
+
+
+
+/* =====================================
+   PROJECT FILTER
+===================================== */
+
+const filterButtons =
+    document.querySelectorAll(
+        ".filter-button"
+    );
+
+
+const projectCards =
+    document.querySelectorAll(
+        ".project-card"
+    );
+
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            filterButtons.forEach(
+                function(btn) {
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            button.classList.add("active");
+
+
+            const filter =
+                button.dataset.filter;
+
+
+            projectCards.forEach(
+                function(card) {
+
+                    const category =
+                        card.dataset.category;
+
+
+                    if (
+                        filter === "all" ||
+                        category === filter
+                    ) {
+
+                        card.classList.remove(
+                            "hidden"
+                        );
+
+                    } else {
+
+                        card.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+});
+
+
+
+/* =====================================
+   CONTACT FORM
+===================================== */
+
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+
+
+const formMessage =
+    document.getElementById(
+        "formMessage"
+    );
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById(
+                    "name"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
+
+            const subject =
+                document.getElementById(
+                    "subject"
+                ).value.trim();
+
+
+            const message =
+                document.getElementById(
+                    "message"
+                ).value.trim();
+
+
+            if (
+                !name ||
+                !email ||
+                !subject ||
+                !message
+            ) {
+
+                formMessage.textContent =
+                    "Please fill in all fields.";
+
+                return;
+
+            }
+
+
+            formMessage.textContent =
+                "Thank you! Your message is ready to be connected to the email service.";
+
+
+            contactForm.reset();
+
+        }
+    );
+
+}
