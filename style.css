@@ -4561,3 +4561,61 @@ button {
     }
 
 }
+/* =====================================
+   DARK THEME
+===================================== */
+
+body.dark-theme {
+
+    --background:
+        #0b0d16;
+
+    --background-two:
+        #111421;
+
+    --text:
+        #f5f2ef;
+
+    --muted:
+        #9699a7;
+
+    --border:
+        rgba(255,255,255,.09);
+
+    --navy:
+        #8996d8;
+
+    --wine:
+        #d58ba4;
+
+    --navy-dark:
+        #090b14;
+
+    --wine-dark:
+        #321622;
+}
+
+
+body.dark-theme .site-header {
+
+    background:
+        rgba(11,13,22,.85);
+}
+
+
+body.dark-theme .project-card,
+body.dark-theme .skill-card,
+body.dark-theme .timeline-content,
+body.dark-theme .certificate-card,
+body.dark-theme .contact-form {
+
+    background:
+        #111421;
+}
+
+
+body.dark-theme .technology-box {
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.3);
+}
