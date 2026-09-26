@@ -1,75 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Aditya Singh — IT Professional, Technical Team Lead and Entrepreneur. Explore my portfolio, projects, skills and professional experience.">
+          content="Aditya Singh - IT Professional, Technical Team Lead and Entrepreneur">
 
-    <meta name="author" content="Aditya Singh">
+    <meta name="author"
+          content="Aditya Singh">
 
-    <title>Aditya Singh | Technology • Business • Digital Solutions</title>
+    <title>Aditya Singh | Portfolio</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ==============================
+<!-- =====================================
      NAVBAR
-================================= -->
+===================================== -->
 
 <header class="header">
 
-    <nav class="navbar container">
+    <nav class="navbar">
 
-        <a href="index.html" class="logo">
-            <span class="logo-box">AS</span>
-            <span class="logo-text">Aditya<span>.</span></span>
+        <a href="#home" class="logo">
+
+            <span class="logo-symbol">AS</span>
+
+            <span class="logo-name">
+                Aditya<span>.</span>
+            </span>
+
         </a>
+
 
         <div class="nav-menu" id="navMenu">
 
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#home" class="nav-link active">
+                Home
+            </a>
 
-            <a href="#" class="nav-resume">
-                Download Resume
-                <i class="fa-solid fa-download"></i>
+            <a href="#about" class="nav-link">
+                About
+            </a>
+
+            <a href="#experience" class="nav-link">
+                Experience
+            </a>
+
+            <a href="#skills" class="nav-link">
+                Skills
+            </a>
+
+            <a href="#projects" class="nav-link">
+                Projects
+            </a>
+
+            <a href="#services" class="nav-link">
+                Services
+            </a>
+
+            <a href="#contact" class="nav-link">
+                Contact
+            </a>
+
+            <a href="#" class="resume-button">
+                Resume
+                <span>↓</span>
             </a>
 
         </div>
 
+
         <div class="nav-actions">
 
-            <button class="theme-toggle" id="themeToggle"
-                    aria-label="Toggle theme">
-                <i class="fa-solid fa-moon"></i>
+            <button
+                class="theme-button"
+                id="themeButton"
+                aria-label="Change theme">
+
+                ☾
+
             </button>
 
-            <button class="menu-toggle" id="menuToggle"
-                    aria-label="Open menu">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
 
         </div>
@@ -79,92 +107,132 @@
 </header>
 
 
-<!-- ==============================
-     HERO
-================================= -->
+<!-- =====================================
+     MAIN
+===================================== -->
 
 <main>
 
+
+<!-- =====================================
+     HERO SECTION
+===================================== -->
+
 <section class="hero" id="home">
 
-    <div class="hero-bg-circle circle-one"></div>
-    <div class="hero-bg-circle circle-two"></div>
+    <div class="hero-background">
 
-    <div class="container hero-container">
+        <div class="gradient-circle circle-one"></div>
 
-        <!-- LEFT -->
+        <div class="gradient-circle circle-two"></div>
+
+        <div class="grid-background"></div>
+
+    </div>
+
+
+    <div class="hero-container">
+
+
+        <!-- HERO CONTENT -->
 
         <div class="hero-content">
 
             <div class="availability">
 
-                <span class="availability-dot"></span>
+                <span class="status-dot"></span>
 
-                <span>Open to Opportunities</span>
+                Open to Opportunities
 
             </div>
 
-            <p class="hero-small-title">
+
+            <p class="eyebrow">
                 HELLO, I'M
             </p>
 
+
             <h1>
+
                 Aditya
+
                 <span>Singh</span>
+
             </h1>
+
 
             <div class="hero-role">
 
-                <span>I build</span>
+                <span>I create</span>
 
-                <span class="typing-text" id="typingText">
-                    digital experiences
+                <span
+                    id="typingText"
+                    class="typing-text">
                 </span>
 
             </div>
 
+
             <p class="hero-description">
 
-                IT professional and technology-focused entrepreneur
-                passionate about building modern digital solutions,
-                responsive websites and meaningful business experiences.
+                IT professional and technology-focused
+                entrepreneur passionate about building
+                modern websites, digital solutions and
+                meaningful business experiences.
 
             </p>
 
+
             <div class="hero-buttons">
 
-                <a href="#projects" class="btn btn-primary">
+                <a
+                    href="#projects"
+                    class="button button-primary">
+
                     View My Work
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <span>→</span>
+
                 </a>
 
-                <a href="#contact" class="btn btn-secondary">
+
+                <a
+                    href="#contact"
+                    class="button button-outline">
+
                     Let's Connect
-                    <i class="fa-regular fa-paper-plane"></i>
+
+                    <span>↗</span>
+
                 </a>
 
             </div>
 
 
-            <!-- SOCIAL -->
+            <!-- SOCIAL LINKS -->
 
-            <div class="hero-social">
+            <div class="social-area">
 
-                <span>Find me on</span>
+                <span>
+                    Find me on
+                </span>
+
 
                 <div class="social-links">
 
-                    <a href="#" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
+                    <a href="#"
+                       aria-label="LinkedIn">
+                        in
                     </a>
 
-                    <a href="#" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
+                    <a href="#"
+                       aria-label="GitHub">
+                        GH
                     </a>
 
-                    <a href="mailto:your@email.com"
+                    <a href="#"
                        aria-label="Email">
-                        <i class="fa-regular fa-envelope"></i>
+                        @
                     </a>
 
                 </div>
@@ -174,50 +242,72 @@
         </div>
 
 
-        <!-- RIGHT -->
+        <!-- HERO VISUAL -->
 
         <div class="hero-visual">
 
-            <div class="profile-glow"></div>
+
+            <div class="visual-glow"></div>
+
+
+            <!-- PROFILE CARD -->
 
             <div class="profile-card">
 
-                <div class="profile-top">
 
-                    <span class="profile-status">
-                        <span></span>
-                        Available
+                <div class="profile-header">
+
+                    <span>
+                        PERSONAL PORTFOLIO
                     </span>
 
-                    <span class="profile-number">
+                    <span>
                         01
                     </span>
 
                 </div>
 
-                <!-- Replace with your image -->
 
                 <div class="profile-image">
 
-                    <div class="image-placeholder">
+                    <img
+                        src="assets/images/profile.jpg"
+                        alt="Aditya Singh"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('image-placeholder');"
+                    >
 
-                        <i class="fa-solid fa-user"></i>
+                    <div class="placeholder-content">
 
-                        <span>Your Photo</span>
+                        <div class="placeholder-initials">
+                            AS
+                        </div>
+
+                        <span>
+                            Add Your Photo
+                        </span>
 
                     </div>
 
                 </div>
 
-                <div class="profile-bottom">
+
+                <div class="profile-info">
 
                     <div>
-                        <strong>Aditya Singh</strong>
-                        <span>IT Professional</span>
+
+                        <h3>
+                            Aditya Singh
+                        </h3>
+
+                        <p>
+                            IT Professional
+                        </p>
+
                     </div>
+
 
                     <div class="profile-arrow">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        ↗
                     </div>
 
                 </div>
@@ -225,46 +315,64 @@
             </div>
 
 
-            <!-- Floating Cards -->
+            <!-- FLOATING CARD -->
 
-            <div class="floating-card card-one">
+            <div class="floating-card floating-one">
 
                 <div class="floating-icon">
-                    <i class="fa-solid fa-code"></i>
+                    &lt;/&gt;
                 </div>
 
                 <div>
-                    <strong>Web Development</strong>
-                    <span>Modern & Responsive</span>
+
+                    <strong>
+                        Web Development
+                    </strong>
+
+                    <small>
+                        Modern & Responsive
+                    </small>
+
                 </div>
 
             </div>
 
 
-            <div class="floating-card card-two">
+            <!-- FLOATING CARD -->
+
+            <div class="floating-card floating-two">
 
                 <div class="floating-icon">
-                    <i class="fa-solid fa-lightbulb"></i>
+                    ✦
                 </div>
 
                 <div>
-                    <strong>Digital Solutions</strong>
-                    <span>Creative Thinking</span>
+
+                    <strong>
+                        Digital Solutions
+                    </strong>
+
+                    <small>
+                        Creative Thinking
+                    </small>
+
                 </div>
 
             </div>
 
 
-            <div class="floating-tech tech-one">
-                <i class="fa-brands fa-js"></i>
+            <!-- TECH BADGES -->
+
+            <div class="tech-badge badge-one">
+                JS
             </div>
 
-            <div class="floating-tech tech-two">
-                <i class="fa-brands fa-python"></i>
+            <div class="tech-badge badge-two">
+                PY
             </div>
 
-            <div class="floating-tech tech-three">
-                <i class="fa-brands fa-wordpress"></i>
+            <div class="tech-badge badge-three">
+                &lt;/&gt;
             </div>
 
         </div>
@@ -272,78 +380,119 @@
     </div>
 
 
-    <!-- SCROLL -->
+    <!-- SCROLL INDICATOR -->
 
-    <a href="#about" class="scroll-down">
+    <a href="#about" class="scroll-indicator">
 
-        <span>Scroll to explore</span>
+        <span>
+            SCROLL TO EXPLORE
+        </span>
 
-        <i class="fa-solid fa-arrow-down"></i>
+        <span class="scroll-arrow">
+            ↓
+        </span>
 
     </a>
 
 </section>
 
 
-<!-- ==============================
-     STATS
-================================= -->
+<!-- =====================================
+     STATISTICS
+===================================== -->
 
-<section class="stats-section">
+<section class="statistics">
 
-    <div class="container stats-container">
+    <div class="statistics-container">
 
-        <div class="stat-item">
+
+        <div class="stat">
 
             <div class="stat-icon">
-                <i class="fa-solid fa-layer-group"></i>
+                ◇
             </div>
 
             <div>
-                <strong class="counter" data-target="10">0</strong>
-                <span>Projects</span>
+
+                <strong
+                    class="counter"
+                    data-target="10">
+                    0
+                </strong>
+
+                <span>
+                    Projects
+                </span>
+
             </div>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
             <div class="stat-icon">
-                <i class="fa-solid fa-code"></i>
+                &lt;/&gt;
             </div>
 
             <div>
-                <strong class="counter" data-target="10">0</strong>
-                <span>Technologies</span>
+
+                <strong
+                    class="counter"
+                    data-target="10">
+                    0
+                </strong>
+
+                <span>
+                    Technologies
+                </span>
+
             </div>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
             <div class="stat-icon">
-                <i class="fa-solid fa-certificate"></i>
+                ★
             </div>
 
             <div>
-                <strong class="counter" data-target="2">0</strong>
-                <span>Certifications</span>
+
+                <strong
+                    class="counter"
+                    data-target="2">
+                    0
+                </strong>
+
+                <span>
+                    Certifications
+                </span>
+
             </div>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
             <div class="stat-icon">
-                <i class="fa-solid fa-users"></i>
+                +
             </div>
 
             <div>
-                <strong class="counter" data-target="5">0</strong>
-                <span>Professional Roles</span>
+
+                <strong
+                    class="counter"
+                    data-target="5">
+                    0
+                </strong>
+
+                <span>
+                    Professional Roles
+                </span>
+
             </div>
 
         </div>
@@ -353,13 +502,14 @@
 </section>
 
 
-<!-- ==============================
-     QUICK ABOUT
-================================= -->
+<!-- =====================================
+     ABOUT PREVIEW
+===================================== -->
 
-<section class="quick-about" id="about">
+<section class="about-preview" id="about">
 
-    <div class="container">
+    <div class="section-container">
+
 
         <div class="section-heading">
 
@@ -368,8 +518,13 @@
             </span>
 
             <h2>
+
                 Turning ideas into
-                <span>digital experiences.</span>
+
+                <span>
+                    digital experiences.
+                </span>
+
             </h2>
 
         </div>
@@ -377,71 +532,107 @@
 
         <div class="about-grid">
 
-            <div class="about-text">
+
+            <div class="about-description">
 
                 <p>
-                    I'm Aditya Singh, an IT professional with an interest
-                    in technology, digital solutions, business and
-                    relationship management.
+
+                    I'm Aditya Singh, an IT professional
+                    with an interest in technology, digital
+                    solutions, business and relationship
+                    management.
+
                 </p>
+
 
                 <p>
-                    My approach combines technical knowledge with
-                    practical business thinking to create websites,
-                    digital experiences and solutions that are useful,
-                    modern and user-focused.
+
+                    I enjoy combining technical knowledge
+                    with practical business thinking to
+                    create useful and modern digital
+                    experiences.
+
                 </p>
 
-                <a href="#" class="text-link">
+
+                <a
+                    href="#"
+                    class="text-button">
+
                     More About Me
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <span>→</span>
+
                 </a>
 
             </div>
 
 
-            <div class="about-highlights">
+            <div class="about-cards">
 
-                <div class="highlight-card">
 
-                    <i class="fa-solid fa-laptop-code"></i>
+                <div class="about-card">
+
+                    <div class="about-card-icon">
+                        &lt;/&gt;
+                    </div>
 
                     <div>
-                        <strong>Technology</strong>
-                        <span>
+
+                        <h3>
+                            Technology
+                        </h3>
+
+                        <p>
                             Web & digital solutions
-                        </span>
+                        </p>
+
                     </div>
 
                 </div>
 
 
-                <div class="highlight-card">
+                <div class="about-card">
 
-                    <i class="fa-solid fa-people-group"></i>
+                    <div class="about-card-icon">
+                        +
+                    </div>
 
                     <div>
-                        <strong>Collaboration</strong>
-                        <span>
+
+                        <h3>
+                            Collaboration
+                        </h3>
+
+                        <p>
                             Team & relationship building
-                        </span>
+                        </p>
+
                     </div>
 
                 </div>
 
 
-                <div class="highlight-card">
+                <div class="about-card">
 
-                    <i class="fa-solid fa-chart-line"></i>
+                    <div class="about-card-icon">
+                        ↗
+                    </div>
 
                     <div>
-                        <strong>Business</strong>
-                        <span>
+
+                        <h3>
+                            Business
+                        </h3>
+
+                        <p>
                             Digital growth mindset
-                        </span>
+                        </p>
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -452,80 +643,98 @@
 </section>
 
 
-<!-- ==============================
+<!-- =====================================
      CTA
-================================= -->
+===================================== -->
 
-<section class="cta-section">
+<section class="cta">
 
-    <div class="container">
+    <div class="cta-container">
 
-        <div class="cta-box">
+        <div class="cta-content">
 
-            <div class="cta-content">
+            <span class="section-label">
+                LET'S WORK TOGETHER
+            </span>
 
-                <span class="section-label">
-                    LET'S WORK TOGETHER
+            <h2>
+
+                Have an idea?
+
+                <br>
+
+                <span>
+                    Let's build it.
                 </span>
 
-                <h2>
-                    Have an idea?
-                    <br>
-                    Let's build it.
-                </h2>
+            </h2>
 
-                <p>
-                    Whether it's a website, digital project,
-                    collaboration or professional opportunity,
-                    I'd love to hear from you.
-                </p>
+            <p>
 
-                <a href="#contact" class="btn btn-primary">
-                    Start a Conversation
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                Whether it's a website, digital project,
+                collaboration or professional opportunity,
+                let's start a conversation.
 
-            </div>
+            </p>
 
-            <div class="cta-decoration">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+
+            <a
+                href="#contact"
+                class="button button-light">
+
+                Start a Conversation
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="cta-decoration">
+
+            <div></div>
+            <div></div>
+            <div></div>
 
         </div>
 
     </div>
 
 </section>
+
 
 </main>
 
 
-<!-- ==============================
+<!-- =====================================
      FOOTER
-================================= -->
+===================================== -->
 
 <footer class="footer">
 
-    <div class="container footer-container">
+    <div class="footer-main">
 
-        <div class="footer-brand">
 
-            <a href="#" class="logo">
+        <div>
 
-                <span class="logo-box">
+            <a href="#home" class="logo">
+
+                <span class="logo-symbol">
                     AS
                 </span>
 
-                <span class="logo-text">
+                <span class="logo-name">
                     Aditya<span>.</span>
                 </span>
 
             </a>
 
-            <p>
+
+            <p class="footer-tagline">
+
                 Technology • Business • Digital Solutions
+
             </p>
 
         </div>
@@ -534,19 +743,15 @@
         <div class="footer-social">
 
             <a href="#">
-                <i class="fa-brands fa-linkedin-in"></i>
+                in
             </a>
 
             <a href="#">
-                <i class="fa-brands fa-github"></i>
+                GH
             </a>
 
             <a href="#">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a href="mailto:your@email.com">
-                <i class="fa-regular fa-envelope"></i>
+                @
             </a>
 
         </div>
@@ -556,26 +761,21 @@
 
     <div class="footer-bottom">
 
-        <div class="container">
+        <span>
+            © <span id="year"></span>
+            Aditya Singh. All rights reserved.
+        </span>
 
-            <p>
-                © <span id="currentYear"></span>
-                Aditya Singh. All rights reserved.
-            </p>
-
-            <p>
-                Designed & built with purpose.
-            </p>
-
-        </div>
+        <span>
+            Designed & built with purpose.
+        </span>
 
     </div>
 
 </footer>
 
 
-<!-- JavaScript -->
-<script src="js/main.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
