@@ -582,3 +582,324 @@ if (contactForm) {
     );
 
 }
+/* =====================================
+   SCROLL PROGRESS
+===================================== */
+
+const scrollProgress =
+    document.getElementById("scrollProgress");
+
+
+window.addEventListener("scroll", function() {
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+
+    const percentage =
+        (scrollTop / documentHeight) * 100;
+
+
+    scrollProgress.style.width =
+        percentage + "%";
+
+});
+
+
+
+/* =====================================
+   BACK TO TOP
+===================================== */
+
+const backToTop =
+    document.getElementById("backToTop");
+
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 500) {
+
+        backToTop.classList.add("show");
+
+    } else {
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+
+backToTop.addEventListener(
+    "click",
+    function() {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+
+/* =====================================
+   DARK / LIGHT THEME
+===================================== */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+const savedTheme =
+    localStorage.getItem("portfolioTheme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-theme");
+
+    themeToggle.textContent = "☀";
+
+}
+
+
+themeToggle.addEventListener(
+    "click",
+    function() {
+
+        document.body.classList.toggle(
+            "dark-theme"
+        );
+
+
+        const isDark =
+            document.body.classList.contains(
+                "dark-theme"
+            );
+
+
+        if (isDark) {
+
+            localStorage.setItem(
+                "portfolioTheme",
+                "dark"
+            );
+
+            themeToggle.textContent = "☀";
+
+        } else {
+
+            localStorage.setItem(
+                "portfolioTheme",
+                "light"
+            );
+
+            themeToggle.textContent = "☼";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================
+   COUNTER ANIMATION
+===================================== */
+
+const counters =
+    document.querySelectorAll(
+        "[data-count]"
+    );
+
+
+let countersStarted = false;
+
+
+function startCounters() {
+
+    if (countersStarted) {
+        return;
+    }
+
+
+    countersStarted = true;
+
+
+    counters.forEach(function(counter) {
+
+        const target =
+            Number(
+                counter.dataset.count
+            );
+
+
+        let current = 0;
+
+
+        const increment =
+            Math.max(
+                1,
+                Math.ceil(target / 40)
+            );
+
+
+        const timer =
+            setInterval(function() {
+
+                current += increment;
+
+
+                if (current >= target) {
+
+                    current = target;
+
+                    clearInterval(timer);
+
+                }
+
+
+                counter.textContent =
+                    current;
+
+            }, 35);
+
+    });
+
+}
+
+
+const statsSection =
+    document.querySelector(
+        ".stats-section"
+    );
+
+
+if (statsSection) {
+
+    const statsObserver =
+        new IntersectionObserver(
+            function(entries) {
+
+                if (
+                    entries[0].isIntersecting
+                ) {
+
+                    startCounters();
+
+                    statsObserver.disconnect();
+
+                }
+
+            },
+            {
+                threshold: .4
+            }
+        );
+
+
+    statsObserver.observe(
+        statsSection
+    );
+
+}
+
+
+
+/* =====================================
+   SCROLL REVEAL
+===================================== */
+
+const revealElements =
+    document.querySelectorAll(
+        ".section-heading, \
+         .timeline-item, \
+         .skill-card, \
+         .technology-box, \
+         .project-card, \
+         .service-card, \
+         .education-card, \
+         .certificate-card, \
+         .contact-item, \
+         .contact-form"
+    );
+
+
+revealElements.forEach(
+    function(element) {
+
+        element.classList.add("reveal");
+
+    }
+);
+
+
+const revealObserver =
+    new IntersectionObserver(
+        function(entries, observer) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "active"
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(
+    function(element) {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+
+
+/* =====================================
+   CURRENT YEAR
+===================================== */
+
+const currentYear =
+    document.getElementById(
+        "currentYear"
+    );
+
+
+if (currentYear) {
+
+    currentYear.textContent =
+        new Date().getFullYear();
+
+}
