@@ -3842,3 +3842,98 @@ button {
     }
 
 }
+
+/* =====================================
+   THANK YOU PAGE
+===================================== */
+
+.thank-you-page {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 30px;
+
+    background: var(--background);
+}
+
+.thank-you-card {
+
+    max-width: 600px;
+
+    padding: 70px 45px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 25px;
+
+    background:
+        var(--background-two);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.thank-icon {
+
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 25px;
+
+    color: white;
+
+    font-size: 25px;
+
+    border-radius: 50%;
+
+    background:
+        var(--wine);
+}
+
+.thank-you-card h1 {
+
+    margin:
+        15px 0;
+
+    color:
+        var(--navy);
+
+    font-size:
+        clamp(38px,6vw,60px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.thank-you-card h1 span {
+
+    color:
+        var(--wine);
+}
+
+.thank-you-card p:not(.section-label) {
+
+    max-width: 450px;
+
+    margin:
+        0 auto 30px;
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
