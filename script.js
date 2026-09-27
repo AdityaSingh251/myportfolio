@@ -582,3 +582,40 @@ document.addEventListener(
 
     }
 );
+/* =====================================
+   FORMSUBMIT CONTACT FORM
+===================================== */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formStatus =
+    document.getElementById("formStatus");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function() {
+
+            submitButton.disabled = true;
+
+            submitButton.style.opacity = "0.6";
+
+            submitButton.innerHTML =
+                "Sending...";
+
+            formStatus.textContent =
+                "Sending your message...";
+
+            formStatus.className =
+                "form-status";
+
+        }
+    );
+
+}
