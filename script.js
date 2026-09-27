@@ -1,622 +1,567 @@
 /* =====================================
-   MOBILE MENU
+   PORTFOLIO MAIN JAVASCRIPT
 ===================================== */
 
-const menuButton =
-    document.getElementById("menuButton");
-
-const navMenu =
-    document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", function () {
 
 
-menuButton.addEventListener("click", function () {
+    /* =====================================
+       DARK / LIGHT THEME
+    ===================================== */
 
-    menuButton.classList.toggle("open");
-
-    navMenu.classList.toggle("show");
-
-});
-
-/* =====================================
-   SKILL BAR ANIMATION
-===================================== */
-
-const skillProgress =
-    document.querySelectorAll(".skill-progress");
+    const themeToggle =
+        document.getElementById("themeToggle");
 
 
-const skillObserver =
-    new IntersectionObserver(
+    function setTheme(theme) {
 
-        function(entries, observer) {
+        if (theme === "dark") {
 
-            entries.forEach(function(entry) {
+            document.body.classList.add(
+                "dark-theme"
+            );
 
-                if (!entry.isIntersecting) {
-                    return;
-                }
+            if (themeToggle) {
 
+                themeToggle.textContent = "☀";
 
-                const progress =
-                    entry.target;
+            }
 
+        } else {
 
-                const width =
-                    progress.dataset.width;
+            document.body.classList.remove(
+                "dark-theme"
+            );
 
+            if (themeToggle) {
 
-                progress.style.width =
-                    width + "%";
+                themeToggle.textContent = "☼";
 
-
-                observer.unobserve(progress);
-
-            });
-
-        },
-
-        {
-            threshold: 0.4
+            }
         }
 
-    );
+        localStorage.setItem(
+            "portfolioTheme",
+            theme
+        );
+    }
 
 
-skillProgress.forEach(function(progress) {
+    /* Load saved theme */
 
-    skillObserver.observe(progress);
-
-});
-
-
-
-/* =====================================
-   PROJECT FILTER
-===================================== */
-
-const filterButtons =
-    document.querySelectorAll(
-        ".filter-button"
-    );
+    const savedTheme =
+        localStorage.getItem(
+            "portfolioTheme"
+        );
 
 
-const projectCards =
-    document.querySelectorAll(
-        ".project-card"
-    );
+    if (savedTheme === "dark") {
+
+        setTheme("dark");
+
+    } else {
+
+        setTheme("light");
+
+    }
 
 
-filterButtons.forEach(function(button) {
+    /* Toggle theme */
 
-    button.addEventListener(
-        "click",
-        function() {
+    if (themeToggle) {
 
-            filterButtons.forEach(
-                function(btn) {
+        themeToggle.addEventListener(
+            "click",
+            function () {
 
-                    btn.classList.remove(
-                        "active"
+                const darkMode =
+                    document.body.classList.contains(
+                        "dark-theme"
                     );
 
+
+                if (darkMode) {
+
+                    setTheme("light");
+
+                } else {
+
+                    setTheme("dark");
+
                 }
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mainNav =
+        document.getElementById("mainNav");
+
+
+    if (menuToggle && mainNav) {
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                menuToggle.classList.toggle(
+                    "open"
+                );
+
+                mainNav.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        const navLinks =
+            document.querySelectorAll(
+                ".nav-link"
             );
 
 
-            button.classList.add("active");
+        navLinks.forEach(
+            function (link) {
 
+                link.addEventListener(
+                    "click",
+                    function () {
 
-            const filter =
-                button.dataset.filter;
-
-
-            projectCards.forEach(
-                function(card) {
-
-                    const category =
-                        card.dataset.category;
-
-
-                    if (
-                        filter === "all" ||
-                        category === filter
-                    ) {
-
-                        card.classList.remove(
-                            "hidden"
+                        menuToggle.classList.remove(
+                            "open"
                         );
 
-                    } else {
-
-                        card.classList.add(
-                            "hidden"
+                        mainNav.classList.remove(
+                            "open"
                         );
 
                     }
+                );
 
-                }
-            );
+            }
+        );
 
-        }
-    );
-
-});
+    }
 
 
 
-/* =====================================
-   CONTACT FORM
-===================================== */
+    /* =====================================
+       HEADER SCROLL
+    ===================================== */
 
-const contactForm =
-    document.getElementById(
-        "contactForm"
-    );
-
-
-const formMessage =
-    document.getElementById(
-        "formMessage"
-    );
+    const siteHeader =
+        document.getElementById(
+            "siteHeader"
+        );
 
 
-if (contactForm) {
+    window.addEventListener(
+        "scroll",
+        function () {
 
-    contactForm.addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
-
-            const name =
-                document.getElementById(
-                    "name"
-                ).value.trim();
-
-
-            const email =
-                document.getElementById(
-                    "email"
-                ).value.trim();
-
-
-            const subject =
-                document.getElementById(
-                    "subject"
-                ).value.trim();
-
-
-            const message =
-                document.getElementById(
-                    "message"
-                ).value.trim();
-
-
-            if (
-                !name ||
-                !email ||
-                !subject ||
-                !message
-            ) {
-
-                formMessage.textContent =
-                    "Please fill in all fields.";
-
+            if (!siteHeader) {
                 return;
-
             }
 
 
-            formMessage.textContent =
-                "Thank you! Your message is ready to be connected to the email service.";
+            if (window.scrollY > 30) {
 
+                siteHeader.classList.add(
+                    "scrolled"
+                );
 
-            contactForm.reset();
+            } else {
 
-        }
-    );
-
-}
-
-/* Close menu after clicking link */
-
-const navLinks =
-    document.querySelectorAll(".nav-link");
-
-
-navLinks.forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        navMenu.classList.remove("show");
-
-        menuButton.classList.remove("open");
-
-    });
-
-});
-
-
-/* =====================================
-   DARK / LIGHT MODE
-===================================== */
-
-const themeButton =
-    document.getElementById("themeButton");
-
-
-const savedTheme =
-    localStorage.getItem("portfolioTheme");
-
-
-if (savedTheme === "dark") {
-
-    document.body.classList.add("dark");
-
-    themeButton.textContent = "☀";
-
-}
-
-
-themeButton.addEventListener("click", function () {
-
-    document.body.classList.toggle("dark");
-
-
-    if (
-        document.body.classList.contains("dark")
-    ) {
-
-        localStorage.setItem(
-            "portfolioTheme",
-            "dark"
-        );
-
-        themeButton.textContent = "☀";
-
-    } else {
-
-        localStorage.setItem(
-            "portfolioTheme",
-            "light"
-        );
-
-        themeButton.textContent = "☾";
-
-    }
-
-});
-
-
-/* =====================================
-   TYPING ANIMATION
-===================================== */
-
-const typingText =
-    document.getElementById("typingText");
-
-
-const words = [
-
-    "digital experiences",
-
-    "modern websites",
-
-    "digital solutions",
-
-    "business ideas",
-
-    "technology products"
-
-];
-
-
-let wordIndex = 0;
-
-let letterIndex = 0;
-
-let deleting = false;
-
-
-function typeAnimation() {
-
-    const currentWord =
-        words[wordIndex];
-
-
-    if (!deleting) {
-
-        typingText.textContent =
-            currentWord.substring(
-                0,
-                letterIndex + 1
-            );
-
-        letterIndex++;
-
-
-        if (
-            letterIndex ===
-            currentWord.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typeAnimation,
-                1600
-            );
-
-            return;
-
-        }
-
-    } else {
-
-        typingText.textContent =
-            currentWord.substring(
-                0,
-                letterIndex - 1
-            );
-
-        letterIndex--;
-
-
-        if (letterIndex === 0) {
-
-            deleting = false;
-
-            wordIndex++;
-
-            if (
-                wordIndex >=
-                words.length
-            ) {
-
-                wordIndex = 0;
+                siteHeader.classList.remove(
+                    "scrolled"
+                );
 
             }
 
         }
-
-    }
-
-
-    const speed =
-        deleting ? 45 : 80;
-
-
-    setTimeout(
-        typeAnimation,
-        speed
     );
 
-}
 
 
-typeAnimation();
+    /* =====================================
+       SCROLL PROGRESS
+    ===================================== */
+
+    const scrollProgress =
+        document.getElementById(
+            "scrollProgress"
+        );
 
 
-/* =====================================
-   COUNTER ANIMATION
-===================================== */
+    window.addEventListener(
+        "scroll",
+        function () {
 
-const counters =
-    document.querySelectorAll(".counter");
+            if (!scrollProgress) {
+                return;
+            }
 
 
-const counterObserver =
-    new IntersectionObserver(
+            const scrollTop =
+                window.scrollY;
 
-        function (entries, observer) {
 
-            entries.forEach(function (entry) {
+            const documentHeight =
+                document.documentElement
+                    .scrollHeight
+                - window.innerHeight;
 
-                if (!entry.isIntersecting) {
 
-                    return;
+            if (documentHeight <= 0) {
+                return;
+            }
+
+
+            const percentage =
+                (
+                    scrollTop /
+                    documentHeight
+                ) * 100;
+
+
+            scrollProgress.style.width =
+                percentage + "%";
+
+        }
+    );
+
+
+
+    /* =====================================
+       BACK TO TOP
+    ===================================== */
+
+    const backToTop =
+        document.getElementById(
+            "backToTop"
+        );
+
+
+    if (backToTop) {
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    backToTop.classList.add(
+                        "show"
+                    );
+
+                } else {
+
+                    backToTop.classList.remove(
+                        "show"
+                    );
 
                 }
 
+            }
+        );
 
-                const counter =
-                    entry.target;
 
+        backToTop.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================
+       COUNTER ANIMATION
+    ===================================== */
+
+    const counters =
+        document.querySelectorAll(
+            "[data-count]"
+        );
+
+
+    let countersStarted = false;
+
+
+    function startCounters() {
+
+        if (countersStarted) {
+            return;
+        }
+
+
+        countersStarted = true;
+
+
+        counters.forEach(
+            function (counter) {
 
                 const target =
                     Number(
-                        counter.dataset.target
+                        counter.dataset.count
                     );
 
 
                 let current = 0;
 
 
-                const increment =
-                    Math.max(
-                        1,
-                        Math.ceil(target / 40)
+                const timer =
+                    setInterval(
+                        function () {
+
+                            current++;
+
+
+                            counter.textContent =
+                                current;
+
+
+                            if (
+                                current >= target
+                            ) {
+
+                                clearInterval(
+                                    timer
+                                );
+
+                            }
+
+                        },
+                        50
                     );
 
+            }
+        );
 
-                function updateCounter() {
-
-                    current += increment;
+    }
 
 
-                    if (current >= target) {
+    const statsSection =
+        document.querySelector(
+            ".stats-section"
+        );
 
-                        counter.textContent =
-                            target + "+";
 
-                        return;
+    if (statsSection) {
+
+        const statsObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    if (
+                        entries[0]
+                            .isIntersecting
+                    ) {
+
+                        startCounters();
+
+                        statsObserver.disconnect();
 
                     }
 
-
-                    counter.textContent =
-                        current;
-
-
-                    requestAnimationFrame(
-                        updateCounter
-                    );
-
+                },
+                {
+                    threshold: 0.3
                 }
+            );
 
 
-                updateCounter();
+        statsObserver.observe(
+            statsSection
+        );
+
+    }
 
 
-                observer.unobserve(counter);
 
-            });
+    /* =====================================
+       SCROLL REVEAL
+    ===================================== */
 
-        },
+    const revealElements =
+        document.querySelectorAll(
+            ".section-heading, \
+             .timeline-item, \
+             .skill-card, \
+             .technology-box, \
+             .project-card, \
+             .service-card, \
+             .education-card, \
+             .certificate-card, \
+             .contact-item, \
+             .contact-form"
+        );
 
-        {
-            threshold: 0.5
+
+    revealElements.forEach(
+        function (element) {
+
+            element.classList.add(
+                "reveal"
+            );
+
         }
-
     );
 
 
-counters.forEach(function (counter) {
-
-    counterObserver.observe(counter);
-
-});
-
-
-/* =====================================
-   ACTIVE NAVIGATION
-===================================== */
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-
-window.addEventListener(
-    "scroll",
-    function () {
-
-        const scrollPosition =
-            window.scrollY + 150;
-
-
-        sections.forEach(function (section) {
-
-            const top =
-                section.offsetTop;
-
-            const height =
-                section.offsetHeight;
-
-            const id =
-                section.getAttribute("id");
-
-
-            if (
-                scrollPosition >= top &&
-                scrollPosition <
-                top + height
+    const revealObserver =
+        new IntersectionObserver(
+            function (
+                entries,
+                observer
             ) {
 
-                navLinks.forEach(function (link) {
+                entries.forEach(
+                    function (entry) {
 
-                    link.classList.remove(
-                        "active"
-                    );
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                });
+                            entry.target.classList.add(
+                                "active"
+                            );
 
+                            observer.unobserve(
+                                entry.target
+                            );
 
-                const activeLink =
-                    document.querySelector(
-                        '.nav-link[href="#' +
-                        id +
-                        '"]'
-                    );
+                        }
 
+                    }
+                );
 
-                if (activeLink) {
-
-                    activeLink.classList.add(
-                        "active"
-                    );
-
-                }
-
+            },
+            {
+                threshold: 0.1
             }
-
-        });
-
-    }
-);
+        );
 
 
-/* =====================================
-   CURRENT YEAR
-===================================== */
+    revealElements.forEach(
+        function (element) {
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-/* =====================================
-   ESCAPE KEY
-===================================== */
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (event.key === "Escape") {
-
-            navMenu.classList.remove("show");
-
-            menuButton.classList.remove("open");
-
-        }
-
-    }
-);
-/* =====================================
-   FORMSUBMIT CONTACT FORM
-===================================== */
-
-const contactForm =
-    document.getElementById("contactForm");
-
-const formStatus =
-    document.getElementById("formStatus");
-
-const submitButton =
-    document.getElementById("submitButton");
-
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        function() {
-
-            submitButton.disabled = true;
-
-            submitButton.style.opacity = "0.6";
-
-            submitButton.innerHTML =
-                "Sending...";
-
-            formStatus.textContent =
-                "Sending your message...";
-
-            formStatus.className =
-                "form-status";
+            revealObserver.observe(
+                element
+            );
 
         }
     );
 
-}
-);
+
+
+    /* =====================================
+       ACTIVE NAVIGATION
+    ===================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+
+    if (
+        sections.length &&
+        navLinks.length
+    ) {
+
+        const navigationObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                const id =
+                                    entry.target.id;
+
+
+                                navLinks.forEach(
+                                    function (link) {
+
+                                        link.classList.remove(
+                                            "active"
+                                        );
+
+
+                                        if (
+                                            link.getAttribute(
+                                                "href"
+                                            ) ===
+                                            "#" + id
+                                        ) {
+
+                                            link.classList.add(
+                                                "active"
+                                            );
+
+                                        }
+
+                                    }
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    rootMargin:
+                        "-80px 0px -50% 0px"
+                }
+            );
+
+
+        sections.forEach(
+            function (section) {
+
+                navigationObserver.observe(
+                    section
+                );
+
+            }
+        );
+
+    }
+
+});
