@@ -158,11 +158,13 @@
 
                 <span>I create</span>
 
-                <span id="typingText" class="typing-text">
-                </span>
-
+                <span id="typingText" class="typing-text"></span>
+                   <strong id="typingText">
+                    digital experiences
+                   </strong>
+                <span class="typing-cursor">|</span>
             </div>
-
+                   
 
             <p class="hero-description">
 
@@ -1801,20 +1803,17 @@
 
             <!-- CONTACT FORM -->
 
-          <form action="https://formsubmit.co/adityaasingh025@gmail.com.com" method="POST" class="contact-form" id="contactForm">
-
-    <!-- FormSubmit settings -->
+          <form
+    action="https://formsubmit.co/adityaasingh025@gmail.com"
+    method="POST"
+    id="contactForm"
+    class="contact-form"
+>
 
     <input
         type="hidden"
         name="_subject"
-        value="New Portfolio Contact — Aditya Singh"
-    >
-
-    <input
-        type="hidden"
-        name="_captcha"
-        value="false"
+        value="New Portfolio Contact - Aditya Singh"
     >
 
     <input
@@ -1825,12 +1824,9 @@
 
     <input
         type="hidden"
-        name="_next"
-        value="https://yourwebsite.com/thank-you.html"
+        name="_captcha"
+        value="false"
     >
-
-
-    <!-- Name -->
 
     <div class="form-group">
 
@@ -1849,8 +1845,6 @@
     </div>
 
 
-    <!-- Email -->
-
     <div class="form-group">
 
         <label for="email">
@@ -1868,7 +1862,21 @@
     </div>
 
 
-    <!-- Phone -->
+    <div class="form-group">
+
+        <label for="subject">
+            Subject
+        </label>
+
+        <input
+            type="text"
+            name="message_subject"
+            placeholder="Project / Collaboration"
+            required
+        >
+
+    </div>
+
 
     <div class="form-group">
 
@@ -1885,27 +1893,6 @@
 
     </div>
 
-
-    <!-- Subject -->
-
-    <div class="form-group">
-
-        <label for="subject">
-            Subject
-        </label>
-
-        <input
-            type="text"
-            id="subject"
-            name="message_subject"
-            placeholder="How can I help you?"
-            required
-        >
-
-    </div>
-
-
-    <!-- Message -->
 
     <div class="form-group">
 
@@ -1924,8 +1911,6 @@
     </div>
 
 
-    <!-- Submit -->
-
     <button
         type="submit"
         class="button button-primary"
@@ -1937,12 +1922,6 @@
         <span>→</span>
 
     </button>
-
-
-    <p
-        class="form-status"
-        id="formStatus"
-    ></p>
 
 </form>
         </div>
