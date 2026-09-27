@@ -3599,115 +3599,111 @@ button {
 
 /* FORM */
 
+/* =====================================
+   CONTACT FORM
+===================================== */
+
 .contact-form {
-
-    padding: 30px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 20px;
-
-    background:
-        var(--background-two);
-
-    box-shadow:
-        var(--shadow);
-}
-
-
-.form-row {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
 }
-
 
 .form-group {
-
-    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
+.form-group:nth-last-of-type(1) {
+    grid-column: 1 / -1;
+}
 
 .form-group label {
-
-    display: block;
-
     color: var(--text);
-
     font-size: 9px;
-
     font-weight: 800;
-
-    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: .7px;
 }
-
 
 .form-group input,
 .form-group textarea {
-
     width: 100%;
-
-    padding: 13px;
-
-    outline: none;
-
-    resize: vertical;
+    padding: 14px 15px;
 
     color: var(--text);
 
     font-family: inherit;
-
     font-size: 11px;
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 9px;
 
-    background:
-        var(--background);
+    outline: none;
 
-    transition: var(--transition);
+    background: var(--background);
+
+    transition: .3s ease;
 }
 
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted);
+    opacity: .7;
+}
 
 .form-group input:focus,
 .form-group textarea:focus {
-
-    border-color:
-        var(--wine);
+    border-color: var(--wine);
 
     box-shadow:
-        0 0 0 3px rgba(125,41,69,.07);
+        0 0 0 3px rgba(125,41,69,.08);
 }
 
-
-.submit-button {
-
-    width: 100%;
+.contact-form .button {
+    width: fit-content;
 }
 
+.form-status {
+    grid-column: 1 / -1;
 
-.form-message {
+    margin: 0;
 
-    min-height: 15px;
-
-    margin-top: 12px;
-
-    text-align: center;
-
-    color: var(--wine);
-
-    font-size: 9px;
-
+    font-size: 10px;
     font-weight: 700;
 }
 
+.form-status.success {
+    color: #31845a;
+}
+
+.form-status.error {
+    color: #b33a4b;
+}
+
+
+@media(max-width:600px) {
+
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group:nth-last-of-type(1) {
+        grid-column: auto;
+    }
+
+    .contact-form .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
 
 /* =====================================
    PART 2 RESPONSIVE
