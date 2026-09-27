@@ -30,83 +30,191 @@
 
 
 /* =====================================
-   DARK MODE
+   DARK THEME
 ===================================== */
 
-body.dark {
+body.dark-theme {
 
-    --background: #0b1021;
-    --background-two: #11172d;
+    --background: #0b0d16;
 
-    --text: #f5f6fa;
-    --muted: #a6acbd;
+    --background-two: #111421;
+
+    --text: #f5f2ef;
+
+    --muted: #9a9daa;
 
     --border: rgba(255,255,255,.10);
 
-    --white: #171d36;
+    --navy: #aab4ed;
+
+    --wine: #dc91aa;
+
+    --navy-dark: #080a12;
+
+    --wine-dark: #351725;
 
     --shadow:
-        0 25px 70px rgba(0,0,0,.35);
+        0 20px 60px rgba(0,0,0,.35);
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
 }
 
 
-/* =====================================
-   RESET
-===================================== */
+/* Main backgrounds */
 
-* {
+body.dark-theme .site-header {
 
-    margin: 0;
-    padding: 0;
+    background:
+        rgba(11,13,22,.92);
 
-    box-sizing: border-box;
+    backdrop-filter:
+        blur(18px);
 }
 
 
-html {
+body.dark-theme .site-header.scrolled {
 
-    scroll-behavior: smooth;
+    background:
+        rgba(11,13,22,.94);
 }
 
 
-body {
+body.dark-theme .hero-section {
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background: var(--background);
-
-    color: var(--text);
-
-    overflow-x: hidden;
-
-    transition:
-        background .35s ease,
-        color .35s ease;
+    background:
+        var(--background);
 }
 
 
-a {
+body.dark-theme .stats-section {
 
-    text-decoration: none;
-
-    color: inherit;
+    background:
+        var(--background-two);
 }
 
 
-button {
+body.dark-theme .final-cta {
 
-    border: 0;
-
-    background: transparent;
-
-    font: inherit;
-
-    cursor: pointer;
+    background:
+        var(--background);
 }
 
+
+
+/* Cards */
+
+body.dark-theme .project-card,
+body.dark-theme .service-card,
+body.dark-theme .skill-card,
+body.dark-theme .certificate-card,
+body.dark-theme .education-card,
+body.dark-theme .timeline-content,
+body.dark-theme .contact-form {
+
+    background:
+        var(--background-two);
+
+    border-color:
+        var(--border);
+}
+
+
+/* Inputs */
+
+body.dark-theme input,
+body.dark-theme textarea {
+
+    background:
+        #0c0f19;
+
+    color:
+        var(--text);
+
+    border-color:
+        var(--border);
+}
+
+
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+
+    color:
+        #707381;
+}
+
+
+/* Mobile menu */
+
+body.dark-theme .main-nav {
+
+    background:
+        #111421;
+
+    border-color:
+        var(--border);
+}
+
+
+/* Hero profile */
+
+body.dark-theme .profile-card,
+body.dark-theme .floating-card {
+
+    background:
+        rgba(17,20,33,.88);
+
+    border-color:
+        rgba(255,255,255,.1);
+}
+
+
+/* Theme button */
+
+body.dark-theme .theme-toggle {
+
+    background:
+        #111421;
+
+    color:
+        var(--text);
+
+    border-color:
+        var(--border);
+}
+
+
+/* Buttons */
+
+body.dark-theme .button-outline {
+
+    color:
+        var(--text);
+
+    border-color:
+        var(--border);
+}
+
+
+/* Footer */
+
+body.dark-theme .site-footer {
+
+    background:
+        #070910;
+}
+
+
+/* Grid */
+
+body.dark-theme .hero-grid-background {
+
+    opacity:
+        .25;
+}
 
 /* =====================================
    NAVBAR
